@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>FRos</name>
+  <version>0.0.0</version>
+  <description>The FRos package</description>
+
+  <maintainer email="ludwig.kastner@hs-kempten.de">ludwig</maintainer>
+  <maintainer email="daniel.schneider@hs-kempten.de">daniel</maintainer>
+
+  <license>GPL-3.0 license</license>
+
+
+  <url type="website">https://github.com/AdriveLivingLab/FRos</url>
+
+
+  <author email="ludwig.kastner@hs-kempten.de">ludwig</author>
+  <author email="daniel.schneider@hs-kempten.de">daniel</author>
+
+  <build_depend>message_generation</build_depend>
+  <build_export_depend>message_generation</build_export_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <export>
+
+  </export>
+</package>
