@@ -26,7 +26,7 @@ This node handles all the functionalities for interacting with the device and pu
 
 ## Motivation[:pushpin:](#motivation)
 The robot operating system (ROS) is widely used for research and in commercial products in the area of robotics. It allows for an easy integration of different sensor types into a common environment and due to its open source nature, many different software packages and drivers are already openly available.
-It makes sense to also expande the ecosystem beyond the commonly used CAN and Ethernet standard to also include FlexRay to be able to listen to a modern car's internal network. 
+It makes sense to also expand the ecosystem beyond the commonly used CAN and Ethernet standard to also include FlexRay to be able to listen to a modern car's internal network. 
 
 This project aims to extend the usage of ROS for FlexRay networks by providing a framework for the currently available Ixxat FRC-EP170 gateway.
 
@@ -59,9 +59,12 @@ The FRos framework is setup as such, that the relevant code snippets can be easi
 
 ## Software build[:pushpin:](#software-build)
 
-The framework is in itself complete after you have gone through the code generation with the c-coderdbc program. The package can then be build with catkin_make, just like any other ROS package you know. [catkin_make tutorial](http://wiki.ros.org/catkin/commands/catkin_make)
+The framework is in itself complete after you have gone through the code generation with the c-coderdbc program. The package can then be build with ```catkin_make```, just like any other ROS package you know. [catkin_make tutorial](http://wiki.ros.org/catkin/commands/catkin_make)
 
-After compilation, source _devel/setup.bash_ and start the node with _roslaunch ixxat_gw ixxat_gw.launch._
+After compilation, 
+```source devel/setup.bash```
+and start the node with 
+```roslaunch ixxat_gw ixxat_gw.launch```
 
 [ [↑ to top ↑](#table-of-contents) ]
 
