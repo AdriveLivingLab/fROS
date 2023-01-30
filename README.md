@@ -1,7 +1,7 @@
 <div align="center">
   <p>
     <a align="center" href="https://www.hs-kempten.de/ifm" target="_blank">
-      <img width="100%" src="docs/FRos_V3.png"></a>
+      <img width="100%" src="docs/FROS_V3.png"></a>
   </p>
 
 <!-- Badges -->
