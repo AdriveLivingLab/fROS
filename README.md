@@ -1,7 +1,7 @@
 <div align="center">
   <p>
     <a align="center" href="https://www.hs-kempten.de/ifm" target="_blank">
-      <img width="100%" src="docs/FROS_V3.png"></a>
+      <img width="100%" src="docs/FRos_V3.png"></a>
   </p>
 
 <!-- Badges -->
@@ -14,7 +14,7 @@
 
 # [Introduction](#introduction)
 
-**FROS** is a node framework to integrate an [Fieldbus](https://en.wikipedia.org/wiki/Fieldbus) into the [Robot Operating System (ROS)](https://www.ros.org/). 
+**FRos** is a node framework to integrate an [Fieldbus](https://en.wikipedia.org/wiki/Fieldbus) into the [Robot Operating System (ROS)](https://www.ros.org/). 
 This project depends on the use of an [Ixxat FRC-EP170](https://www.ixxat.com/products/automotive-solutions/overview/embedded-platform/frc-ep-170?ordercode=1.01.0142.00000) or [Ixxat FRC-EP190](https://www.ixxat.com/products/automotive-solutions/overview/embedded-platform/frc-ep-190?ordercode=1.13.0094.00000) gateway device, which to our knowledge are one of the few gateway devices on the market that can be easily integrated into a ROS environment. ROS is widely used for research and in commercial products in the field of robotics. It allows an easy integration of different sensor types into a common environment and due to its open source nature, many different software packages and drivers are already openly available.
 
 In order to extend the ecosystem beyond the widely used CAN and Ethernet standard to include FlexRay in ROS, we provide this framework for the currently available Ixxat gateways [Ixxat FRC-EP170/190](https://www.ixxat.com/products/automotive-solutions/overview/embedded-platform/frc-ep-190?ordercode=1.13.0094.00000). This node handles all the functionalities for interacting with the device and publishes the received messages as topics in ROS. 
@@ -54,7 +54,7 @@ The following section will give you a fundamentel overview of the project and it
 ---
 
 ## [Modules](#modules)
-The module FROS currently consists of:
+The module FRos currently consists of:
 ### [ROS-node](#ros-node)
 The framework itself ([ros-node](./ros-node/)) for ROS that handles the connection to the device and the ROS publishers.
 
@@ -63,10 +63,10 @@ The framework itself ([ros-node](./ros-node/)) for ROS that handles the connecti
     - a more elegant C code based on C structs
     - outputs copy-paste ready code snippets to handle the initialization of ROS publishers, to call the appropriate functions based on the message ID and also to generate the necessary **.msg* files for ROS.
 
-The FROS framework is setup as such, that the relevant code snippets can be easily integrated.
+The FRos framework is setup as such, that the relevant code snippets can be easily integrated.
 
 <div align="center">
-  <img src = "docs/FROS-schema.svg" alt="FROS framework schema" width="75%" />
+  <img src = "docs/FRos-schema.svg" alt="FRos framework schema" width="75%" />
 </div>
 
 [[↑ to top ↑](#table-of-contents)]
@@ -126,7 +126,7 @@ To apply the mapping, follow the following steps:
 10. Select __GenEthernet__ [1]
 11. Select __Messages__ [2]
 12. On the left column select __Messages__ [3]
-<br/>
+
 ![](/docs/ACT_ChannelMapping_1.png)
 
 >Hint: If FlexRay is your fieldbus, you have to generate a **.dbc* file from **.xml* by using `Flx2CanDb`, which will provided to you by IXXAT on request. 
