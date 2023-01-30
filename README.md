@@ -33,12 +33,17 @@ In order to extend the ecosystem beyond the widely used CAN and Ethernet standar
   - [Phyiscal requirements](#physical-requirements)
   - [Supported Fieldbus systems](#supported-fieldbus-systems)
 - [Table of contents](#table-of-contentspushpin)
-- [Code generation over handwork](#code-generation-over-handwork)
-- [Composition](#composition)
-- [Software build](#software-build)
-- [Gateway Setup](#gateway-setup)
-    - [ACT Project setup](#act-project-setup)
-
+- [Process](#process)
+  - [Modules](#modules)
+    - [ROS-node](#ros-node)
+    - [c-coderdbc](#c-coderdbc)
+  - [Software requirements](#software-requirements)
+  - [Workflow](#workflow)
+    - [ACT Setup](#act-setup)
+    - [Channel Mapping](#channel-mapping)
+  - [Know issues](#known-issues)
+- [License](#license)
+- [Contact](#contact)
 ---
 
 # [Process](#process)
@@ -50,9 +55,11 @@ The following section will give you a fundamentel overview of the project and it
 
 ## [Modules](#modules)
 The module FROS currently consists of:
-1. The framework itself ([ros-node](./ros-node/)) for ROS that handles the connection to the device and the ROS publishers.
+### [ROS-node](#ros-node)
+The framework itself ([ros-node](./ros-node/)) for ROS that handles the connection to the device and the ROS publishers.
 
-2. C-coderdbc ([c-coderdbc](./c-coderdbc/)) as a fork of the c-coderdbc by github.com user [astand](https://github.com/astand). This program was created to output C source code from a given **.dbc* file. It has been modified for this use case to output:
+### [C-coderdbc](#c-coderdbc)
+ C-coderdbc ([c-coderdbc](./c-coderdbc/)) as a fork of the c-coderdbc by github.com user [astand](https://github.com/astand). This program was created to output C source code from a given **.dbc* file. It has been modified for this use case to output:
     - a more elegant C code based on C structs
     - outputs copy-paste ready code snippets to handle the initialization of ROS publishers, to call the appropriate functions based on the message ID and also to generate the necessary **.msg* files for ROS.
 
@@ -73,11 +80,12 @@ To follow the process steps, we recommend the following setup:
 - `ROS noetic`
 
 ## [Workflow](#workflow)
-To integrate the Ixxat FRC into ROS, we will demonstrate the workflow in the following by using CAN as fieldbus. Therefore, we use the public available configuration file from [commaai](https://github.com/commaai/opendbc/blob/d585a9bf2908b2c83bf02b567b9e1f5bfc587a01/vw_mqb_2010.dbc).
+To integrate the Ixxat FRC into ROS, we will demonstrate the workflow in the following by using CAN as fieldbus. Therefore, we use the public available configuration file from [commaai](https://github.com/commaai/opendbc/blob/d585a9bf2908b2c83bf02b567b9e1f5bfc587a01/vw_mqb_2010.dbc). We adapted this software project to work two specific possible configurations. One configuration maps a selection of whole frames to GenEthernet, the other maps a selection of whole PDUs to GenEthernet. A third possible configuration, the mapping of all frames to GenEthernet, is not included in this release. This would require a different processing of the message ID.
 
+Generally, the customer support and engineers at *HMS* will be able to assist you with your project plans. In the following paragraph, we can provide you with hints how to setup your environment so the outcome fits best for you.
 
-
-Open Ixxat ACT: 
+### [ACT Setup](#act-setup)
+Open Ixxat ACT and:
 
 1. Select __New project__ and
 
@@ -112,15 +120,16 @@ Open Ixxat ACT:
 ![](/docs/ACT_adopt_ID.png)
 
 Now the project is configured and we are able to map the data from Bus to Generic Ethernet (GenEthernet)
-### Channel Mapping
+### [Channel Mapping](#channel-mapping)
 To apply the mapping, follow the following steps: 
 
 10. Select __GenEthernet__ [1]
 11. Select __Messages__ [2]
-12. On the left column select __Messages__ [3]<br/>
+12. On the left column select __Messages__ [3]
+<br/>
 ![](/docs/ACT_ChannelMapping_1.png)
 
->Hint: If FlexRay is your fieldbus, you have to generate a *.dbc file from *.xml by using Flx2CanDb, which will provided to you by IXXAT on request. 
+>Hint: If FlexRay is your fieldbus, you have to generate a **.dbc* file from **.xml* by using `Flx2CanDb`, which will provided to you by IXXAT on request. 
 
 Apply mapping: 
 
@@ -134,7 +143,7 @@ Apply mapping:
 
 17. Download configuration to Device via IxAdmin (will be installed with ACT)
 
->Switch to Linux OS
+>Switch to Linux OS and copy the created files
 
 18. Build c-coderdbc according to the instruction given in the [readme](https://github.com/AdriveLivingLab/c-coderdbc/blob/9af0fbd15538052d8887cb7610b9b6477e62b497/README.md).
 
@@ -166,19 +175,13 @@ After compilation the following steps are required to start the node:
 
 ---
 
-# [Gateway Setup](#software-integration)
+# [Known issues](#known-issues)
 
-Generally, the customer support and engineers at *HMS* will be able to assist you with your project plans. In the following paragraph, we can provide you with hints how to setup your environment so the outcome fits best for you.
+> **_ISSUE #1_:**  FlexRay allows for PDUs, and as such also its signals, to appear in more than one frame. This way, a specific PDU might be updated more frequently by, e.g. publishing it in two separate frames. Thus, with the analysis of only one of the two frames, there is data lost and the observed updaterate of the signals is halved. 
 
-## ACT Project setup
-
-We adapted this project to work two specific possible configurations. One configuration maps a selection of whole frames to GenEthernet, the other maps a selection of whole PDUs to GenEthernet. A third possible configuration, the mapping of all frames to GenEthernet, is not included in this release. This would require a different processing of the message ID.
-
-
-## [Known issues](#known-issues)
-
->Note: FlexRay allows for PDUs, and as such also its signals, to appear in more than one frame. This way, a specific PDU might be updated more frequently by, e.g. publishing it in two separate frames. Thus, with the analysis of only one of the two frames, there is data lost and the observed updaterate of the signals is halved. We can come up with two possible ways to work around that in case this becomes an issue:
+> **_SOLUTION #1.1_:** 
 - Observe all frames that include this PDU, and with that the signal, and fuse them together in post-processing.
+> **_SOLUTION #1.2_:** 
 - Change the configuration to map PDUs to GenEthernet, as such the signals will be updated by all the frames the PDU happens to be included.
 
 [[↑ to top ↑](#table-of-contents)]
@@ -208,3 +211,5 @@ We adapted this project to work two specific possible configurations. One config
   <a href="#" style="text-decoration:none;"> <img src = "docs/hms_logo.png" alt="website HMS" width=100px/>
 
 </div> 
+
+[ [↑ to top ↑](#table-of-contents) ]
