@@ -89,16 +89,20 @@ Open Ixxat ACT and:
 
 1. Select __New project__ and
 
-2. Select __Gateway__  <br/>
+2. Select __Gateway__ 
+
 ![](/docs/ACT_new_project.png) 
 
-3. Select your device <br/>
+3. Select your device 
+
 ![](/docs/ACT_device_selection.png)
 
-4. Add GenEthernet to your project <br/>
+4. Add GenEthernet to your project
+
 ![](/docs/ACT_Add_Gen_Ethernet.png)
 
-5. Keep file description empty as for now and continue with OK <br/>
+5. Keep file description empty as for now and continue with OK
+
 ![](/docs/ACT_keep_empty.png)
 
 6. Ensure the following settings: 
@@ -106,17 +110,18 @@ Open Ixxat ACT and:
 - __Role__: Slave
 - __Optimize for__: Neutral 
 - __Interface__: LAN 
-- __Port__: 19227 <br/>
+- __Port__: 19227
+
 ![](/docs/ACT_GenEth_settings.png)
 
 7. Add database file (**.dbc*, **.xml*, ...) to e.g. CAN-1 (since we use CAN (`vw_mqb_2010.dbc` from [commaai](https://github.com/commaai/opendbc/blob/d585a9bf2908b2c83bf02b567b9e1f5bfc587a01/vw_mqb_2010.dbc)) as workflow example) or FR-1 A / B. This depends on your use case and available fieldbus.
-<br/>
+
 ![](/docs/ACT_GenEth_final.png)
 
 8. Click "next" to contineu
 
 9. Navigate to Tools > Options > Gateway and activate __Adopt Source ID__
-<br/>
+
 ![](/docs/ACT_adopt_ID.png)
 
 Now the project is configured and we are able to map the data from Bus to Generic Ethernet (GenEthernet)
