@@ -265,6 +265,7 @@ int main(int argc, char **argv)
   
   // Publisher inits. Paste publishers.txt from c-coderdbc here!
   // example: 
+  // ::FROS:: PASTE YOUR PUBLISHERS HERE
   ros::Publisher publish_Frame_1 = nh.advertise<ixxat_gw::Frame_1>("Frame_1", 1);
 
   /* Initilaize loop rate  */
@@ -342,6 +343,8 @@ int main(int argc, char **argv)
           // Call the right function according to the ID to decode the binary string into signals
           // Paste evaluation.txt from c-coderdbc here!
           // example: 
+
+          // ::FROS:: PASTE YOUR MSG HERE
           if (pApp->pPkt->dw_id == 1) {
             ixxat_gw::Frame_1 *decodedMsg;
             Frame_1_raw *rawMsg = (FRAME_1_raw *)(pApp->pPkt->ab_data);
