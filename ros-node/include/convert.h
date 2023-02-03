@@ -4,12 +4,12 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "decode.h"
-#include <ixxat_gw/Frame_1.h>
+#include <FRos/Frame_1.h>
 
 
-ixxat_gw::Frame_1* Frame_1(Frame_1 *pkt)
+FRos::Frame_1* Frame_1_APP(Frame_1_raw *pkt)
 {
-ixxat_gw::Frame_1 *pAppMsg = (ixxat_gw::Frame_1 *) calloc(1,sizeof(ixxat_gw::Frame_1));
+FRos::Frame_1 *pAppMsg = (FRos::Frame_1 *) calloc(1,sizeof(FRos::Frame_1));
 pAppMsg->header.stamp = ros::Time::now();
 pAppMsg->header.seq = 0;
   pAppMsg->Acceleration_X = pkt->Acceleration_X * 0.040000 + -327.680000;

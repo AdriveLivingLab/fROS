@@ -1,4 +1,4 @@
 Header header
-double Acceleration_X
-double Acceleration_Y
-double Rate_Z
+float64 Acceleration_X
+float64 Acceleration_Y
+float64 Rate_Z

@@ -18,8 +18,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/FRos/convert.h"
-#include "../include/FRos/decode.h"
+#include "../include/convert.h"
+#include "../include/decode.h"
 
 #define DEBUG false
 #define PRINT false
@@ -221,7 +221,7 @@ int exIxxPkt(APP_IXX_PP *pApp)
 int main(int argc, char **argv)
 {
   // Initialize node
-  ros::init(argc, argv, "ixxat_gw_pkg");
+  ros::init(argc, argv, "FRos_pkg");
   ros::NodeHandle nh("~");
   // Port number to which the gateway broadcasts
   std::string port_num_gw;
@@ -266,7 +266,7 @@ int main(int argc, char **argv)
   // Publisher inits. Paste publishers.txt from c-coderdbc here!
   // example: 
   // ::FROS:: PASTE YOUR PUBLISHERS HERE
-  ros::Publisher publish_Frame_1 = nh.advertise<ixxat_gw::Frame_1>("Frame_1", 1);
+  ros::Publisher publish_Frame_1 = nh.advertise<FRos::Frame_1>("Frame_1", 1);
 
   /* Initilaize loop rate  */
   ros::Rate loop_rate(loopSpeed);
@@ -346,10 +346,10 @@ int main(int argc, char **argv)
 
           // ::FROS:: PASTE YOUR MSG HERE
           if (pApp->pPkt->dw_id == 1) {
-            ixxat_gw::Frame_1 *decodedMsg;
-            Frame_1_raw *rawMsg = (FRAME_1_raw *)(pApp->pPkt->ab_data);
+            FRos::Frame_1 *decodedMsg;
+            Frame_1_raw *rawMsg = (Frame_1_raw *)(pApp->pPkt->ab_data);
             decodedMsg = Frame_1_APP(rawMsg);
-            publish_Frame_1_.publish(*decodedMsg);
+            publish_Frame_1.publish(*decodedMsg);
             free(pApp->pPkt);
             free(decodedMsg);
           }

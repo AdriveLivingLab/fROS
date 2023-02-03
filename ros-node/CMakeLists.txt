@@ -6,7 +6,6 @@ add_compile_options(-std=c++17 -Wno-packed-bitfield-compat)
 find_package(catkin REQUIRED COMPONENTS
     message_generation
     roscpp
-    rospy
     std_msgs
 )
 
@@ -17,9 +16,10 @@ add_message_files(
   Frame_1.msg
 )
  generate_messages(
-  DEPENDENCIES
+
+DEPENDENCIES
   std_msgs
- )
+)
 
 catkin_package(
   CATKIN_DEPENDS 
@@ -39,13 +39,13 @@ include_directories(
 )
 
 add_library(${PROJECT_NAME}_core
-  include/ixxat_gw/decode.h
-  include/ixxat_gw/convert.h
-  src/ixxat_gw.cpp
+  include/decode.h
+  include/convert.h
+  src/FRos.cpp
 )
 
 add_executable(
-  ${PROJECT_NAME} src/ixxat_gw.cpp
+  ${PROJECT_NAME} src/FRos.cpp
  )
 
 add_dependencies(${PROJECT_NAME}_core
