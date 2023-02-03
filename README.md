@@ -140,7 +140,7 @@ To apply the mapping, follow the following steps:
 
 Apply mapping: 
 
-13. Drag & Drop the messages from left onto GenEthernet on right side (see image above how it could looke like)
+13. Drag & Drop the messages from left onto GenEthernet on right side (see image above how it could look like)
 
 14. Build configuration ![](/docs/build_config.png)
 
@@ -191,7 +191,7 @@ After compilation the following steps are required to start the node:
 1. ```source devel/setup.bash```
 2. ```roslaunch ixxat_gw ixxat_gw.launch```
    
-Now the node will start and establish the connection to the device. The topics will be published as soon as they are received by the gateway.
+Now the node will start and establish the connection to the device. The topics will be published as soon as they are received by the gateway. Take a deeper look into the launchfile. There, you can change the IP to match your configuration etc.
 
 [[↑ to top ↑](#table-of-contents)]
 
