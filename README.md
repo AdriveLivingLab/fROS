@@ -226,7 +226,7 @@ Now the node will start and establish the connection to the device. The topics w
 <div style="width: 50%; float:right" align="center">
   <a href="https://www.instagram.com/hmsnetworks/" style="text-decoration:none;"> &nbsp; <img src = "docs/instagram_hms.svg" alt="instagram HMS" width=35px/></li> 
   <a href="https://www.youtube.com/c/IxxatbyHMSNetworks" style="text-decoration:none;"> &nbsp;<img src = "docs/youtube_hms.svg" alt="youtube HMS" width=35px/>
-  <a href="linkedin.com/company/hmsnetworks" style="text-decoration:none;"> &nbsp; <img src = "docs/linkedin_hms.svg" alt="linkedin HMS" width=35px/>
+  <a href="https://www.linkedin.com/company/hmsnetworks" style="text-decoration:none;"> &nbsp; <img src = "docs/linkedin_hms.svg" alt="linkedin HMS" width=35px/>
   <a href="mailto:info@hms-networks.de" style="text-decoration:none;"> &nbsp; <img src = "docs/mail_hms.svg" alt="email HMS" width=35px/>
   <br/>
   </br>
