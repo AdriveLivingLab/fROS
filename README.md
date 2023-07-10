@@ -7,8 +7,6 @@
 <!-- Badges -->
 ![C++](https://img.shields.io/badge/c++-blue.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
-[![Windows](https://svgshare.com/i/ZhY.svg)](https://svgshare.com/i/ZhY.svg)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 </div>
 
@@ -203,6 +201,7 @@ Now the node will start and establish the connection to the device. The topics w
 
 > **_SOLUTION #1.1_:** 
 - Observe all frames that include this PDU, and with that the signal, and fuse them together in post-processing.
+- Note: We are currently working on supporting the wildcard mapping feature of the device. With this, we want to be able to decode all FlexRay frames and publish the contained PDU's as ROS topics. Stay tuned for that.
 > **_SOLUTION #1.2_:** 
 - Change the configuration to map PDUs to GenEthernet, as such the signals will be updated by all the frames the PDU happens to be included.
 
