@@ -1,3 +1,6 @@
 [submodule "c-coderdbc"]
 	path = c-coderdbc
 	url = https://github.com/AdriveLivingLab/c-coderdbc.git
+[submodule "FibexConverter"]
+	path = FibexConverter
+	url = https://github.com/AdriveLivingLab/FibexConverter
