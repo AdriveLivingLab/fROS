@@ -246,7 +246,7 @@ Now the node will start and establish the connection to the device. The topics w
   DOI = {10.1109/tiv.2024.3365849},
   journal = {IEEE Transactions on Intelligent Vehicles},
   publisher = {Institute of Electrical and Electronics Engineers (IEEE)},
-  author = {Schneider,  Daniel and Kastner,  Ludwig and Schick,  Bernhard and Watzenig,  Daniel},
+  author = {Schneider, Daniel and Kastner, Ludwig and Schick, Bernhard and Watzenig, Daniel},
   year = {2024},
   pages = {1–16}
 }
