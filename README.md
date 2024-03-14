@@ -44,6 +44,7 @@ In order to extend the ecosystem beyond the widely used CAN and Ethernet standar
 - [Known issues](#known-issues)
 - [License](#license)
 - [Contact](#contact)
+- [Cite](#cite)
 ---
 
 # [Process](#process)
@@ -233,3 +234,22 @@ Now the node will start and establish the connection to the device. The topics w
 </div> 
 
 [ [↑ to top ↑](#table-of-contents) ]
+
+
+# [Cite](#cite)
+
+```BibTeX
+@article{Schneider2024,
+  title = {fROS: A Generic Fieldbus Framework for ROS},
+  ISSN = {2379-8858},
+  url = {http://dx.doi.org/10.1109/TIV.2024.3365849},
+  DOI = {10.1109/tiv.2024.3365849},
+  journal = {IEEE Transactions on Intelligent Vehicles},
+  publisher = {Institute of Electrical and Electronics Engineers (IEEE)},
+  author = {Schneider, Daniel and Kastner, Ludwig and Schick, Bernhard and Watzenig, Daniel},
+  year = {2024},
+  pages = {1–16}
+}
+
+[ [↑ to top ↑](#table-of-contents) ]
+```
